@@ -1,0 +1,97 @@
+<xs:schema xmlns:aasg="http://stategeothermaldata.org/uri-gin/aasg/xmlschema/GeologicReservoir/0.2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml" xmlns:gmlsf="http://www.opengis.net/gmlsf" targetNamespace="http://stategeothermaldata.org/uri-gin/aasg/xmlschema/GeologicReservoir/0.2" elementFormDefault="qualified" version="01.05">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gmlsf" schemaLocation="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd"/>
+	<xs:annotation>
+		<!-- This XSD document, including XML schema, indicates the content useful to characterize a subsurface reservoir for geothermal potential. The content model was created to provide a template for reservoir data gathered by the Texas BEG to be hosted by the NGDS. Provide a format that is clear and comprehesive so that it may be understood by fellow researchers in future studies. Also provide a standardized data template to allow for easy updating by multiple stakeholders and participants.-->
+		<!--This XSD document was created on 2013-06-03 by Christy Caudill, AZGS.-->
+		<xs:appinfo source="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd">
+			<gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+			<gmlsf:GMLProfileSchema>
+http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gmlsf:GMLProfileSchema>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="GeologicReservoir" type="aasg:GeologicReservoirType" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="GeologicReservoirType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="OBJECTID" type="xs:int" minOccurs="0"/>
+					<xs:element name="ReservoirURI">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="255"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="ReservoirName" type="xs:string"/>
+					<xs:element name="Label" type="xs:string"/>
+					<xs:element name="OtherID" type="xs:string" minOccurs="0"/>
+					<xs:element name="OtherName" type="xs:string" minOccurs="0"/>
+					<xs:element name="Description" type="xs:string" minOccurs="0"/>
+					<xs:element name="County" type="xs:string"/>
+					<xs:element name="State" type="xs:string"/>
+					<xs:element name="LocationName" type="xs:string" minOccurs="0"/>
+					<xs:element name="LatDegree" type="xs:double" minOccurs="0"/>
+					<xs:element name="LongDegree" type="xs:double" minOccurs="0"/>
+					<xs:element name="SRS" type="xs:string"/>
+					<xs:element name="LocationUncertaintyStatement" type="xs:string"/>
+					<xs:element name="TemperatureMax_F" type="xs:double" minOccurs="0"/>
+					<xs:element name="TemperatureMin_F" type="xs:double" minOccurs="0"/>
+					<xs:element name="DepthToTop_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="DepthToBottom_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="DominantFormationName" type="xs:string" minOccurs="0"/>
+					<xs:element name="OtherFormationName" type="xs:string" minOccurs="0"/>
+					<xs:element name="DominantLithologyName" type="xs:string" minOccurs="0"/>
+					<xs:element name="OtherLithologyName" type="xs:string" minOccurs="0"/>
+					<xs:element name="Area_acres" type="xs:double" minOccurs="0"/>
+					<xs:element name="Width_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="Length_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="SandVolume_cft" type="xs:double" minOccurs="0"/>
+					<xs:element name="BlockVolume_cft" type="xs:double" minOccurs="0"/>
+					<xs:element name="PercentSand" type="xs:double" minOccurs="0"/>
+					<xs:element name="AverageNetSandThickness_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="WellCount" type="xs:integer" minOccurs="0"/>
+					<xs:element name="FaultCount" type="xs:integer" minOccurs="0"/>
+					<xs:element name="Faulted" type="xs:string" minOccurs="0"/>
+					<xs:element name="FaultType" type="xs:string" minOccurs="0"/>
+					<xs:element name="FaultHydraulicCharacter" type="xs:string" minOccurs="0"/>
+					<xs:element name="FirstProductionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="LastProductionDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="YearsInProduction" type="xs:integer" minOccurs="0"/>
+					<xs:element name="MonthlyProduction_bbl" type="xs:double" minOccurs="0"/>
+					<xs:element name="ProductionReportDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="AverageMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
+					<xs:element name="MinimumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
+					<xs:element name="MaximumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
+					<xs:element name="WaterInjection_bbl" type="xs:double" minOccurs="0"/>
+					<xs:element name="WaterSaturation_pct" type="xs:double" minOccurs="0"/>
+					<xs:element name="WaterTDS_mgl" type="xs:double" minOccurs="0"/>
+					<xs:element name="AverageFieldWidePressure_psi" type="xs:double" minOccurs="0"/>
+					<xs:element name="AverageFieldWideGradient_degfft" type="xs:double" minOccurs="0"/>
+					<xs:element name="PorosityMax_pct" type="xs:double" minOccurs="0"/>
+					<xs:element name="PorosityMin_pct" type="xs:double" minOccurs="0"/>
+					<xs:element name="PermeabilityMax_mD" type="xs:double" minOccurs="0"/>
+					<xs:element name="PermeabilityMin_mD" type="xs:double" minOccurs="0"/>
+					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0"/>
+					<xs:element name="Trap" type="xs:string" minOccurs="0"/>
+					<xs:element name="Drive" type="xs:string" minOccurs="0"/>
+					<xs:element name="WaterDensity" type="xs:double" minOccurs="0"/>
+					<xs:element name="CommodityOfInterest" type="xs:string" minOccurs="0"/>
+					<xs:element name="Stimulation" type="xs:string" minOccurs="0"/>
+					<xs:element name="AveragePerforatedThickness_ft" type="xs:double" minOccurs="0"/>
+					<xs:element name="RelatedResource" type="xs:string" minOccurs="0"/>
+					<xs:element name="Source" type="xs:string"/>
+					<xs:element name="MetadataURI" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="255"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="Shape" type="gml:PointPropertyType"/>
+					<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
