@@ -3,7 +3,7 @@
 	<xs:import namespace="http://www.opengis.net/gmlsf" schemaLocation="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd"/>
 	<xs:annotation>
 		<!-- This XSD document, including XML schema, indicates the content useful to characterize a subsurface reservoir for geothermal potential. The content model was created to provide a template for reservoir data gathered by the Texas BEG to be hosted by the NGDS. Provide a format that is clear and comprehesive so that it may be understood by fellow researchers in future studies. Also provide a standardized data template to allow for easy updating by multiple stakeholders and participants.-->
-		<!--This XSD document was created on 2013-06-03 by Christy Caudill, AZGS.-->
+		<!--Annotated version 0.2.1. This XSD document was created on 2013-06-03 by Christy Caudill, AZGS. Field Description annotations standardized 2013-08-22 by Esty Pape, AZGS.-->
 		<xs:appinfo source="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd">
 			<gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
 			<gmlsf:GMLProfileSchema>
@@ -15,80 +15,326 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 		<xs:complexContent>
 			<xs:extension base="gml:AbstractFeatureType">
 				<xs:sequence>
-					<xs:element name="OBJECTID" type="xs:int" minOccurs="0"/>
+					<xs:element name="OBJECTID" type="xs:int" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Integer record count, added by ArcGIS servers during service deployment; not required but cannot be removed when deploying from ArcGIS feature class. Not user maintained, so this element appears in XML implementation but not in the WellHeaderTemplate.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="ReservoirURI">
+						<xs:annotation>
+							<xs:documentation>Unique identifier that specifies the feature represented (geologic reservoir). Each geologic reservoir should have a unique identifier. Ideally, the identifier is an http URI that will dereference to a known, useful representation of the feature. This identifier will be used to cross reference the feature to other information related to this feature.</xs:documentation>
+						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
 								<xs:maxLength value="255"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="ReservoirName" type="xs:string"/>
-					<xs:element name="Label" type="xs:string"/>
-					<xs:element name="OtherID" type="xs:string" minOccurs="0"/>
-					<xs:element name="OtherName" type="xs:string" minOccurs="0"/>
-					<xs:element name="Description" type="xs:string" minOccurs="0"/>
-					<xs:element name="County" type="xs:string"/>
-					<xs:element name="State" type="xs:string"/>
-					<xs:element name="LocationName" type="xs:string" minOccurs="0"/>
-					<xs:element name="LatDegree" type="xs:double" minOccurs="0"/>
-					<xs:element name="LongDegree" type="xs:double" minOccurs="0"/>
-					<xs:element name="SRS" type="xs:string"/>
-					<xs:element name="LocationUncertaintyStatement" type="xs:string"/>
-					<xs:element name="TemperatureMax_F" type="xs:double" minOccurs="0"/>
-					<xs:element name="TemperatureMin_F" type="xs:double" minOccurs="0"/>
-					<xs:element name="DepthToTop_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="DepthToBottom_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="DominantFormationName" type="xs:string" minOccurs="0"/>
-					<xs:element name="OtherFormationName" type="xs:string" minOccurs="0"/>
-					<xs:element name="DominantLithologyName" type="xs:string" minOccurs="0"/>
-					<xs:element name="OtherLithologyName" type="xs:string" minOccurs="0"/>
-					<xs:element name="Area_acres" type="xs:double" minOccurs="0"/>
-					<xs:element name="Width_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="Length_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="SandVolume_cft" type="xs:double" minOccurs="0"/>
-					<xs:element name="BlockVolume_cft" type="xs:double" minOccurs="0"/>
-					<xs:element name="PercentSand" type="xs:double" minOccurs="0"/>
-					<xs:element name="AverageNetSandThickness_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="WellCount" type="xs:integer" minOccurs="0"/>
-					<xs:element name="FaultCount" type="xs:integer" minOccurs="0"/>
-					<xs:element name="Faulted" type="xs:string" minOccurs="0"/>
-					<xs:element name="FaultType" type="xs:string" minOccurs="0"/>
-					<xs:element name="FaultHydraulicCharacter" type="xs:string" minOccurs="0"/>
-					<xs:element name="FirstProductionDate" type="xs:date" minOccurs="0"/>
-					<xs:element name="LastProductionDate" type="xs:date" minOccurs="0"/>
-					<xs:element name="YearsInProduction" type="xs:integer" minOccurs="0"/>
-					<xs:element name="MonthlyProduction_bbl" type="xs:double" minOccurs="0"/>
-					<xs:element name="ProductionReportDate" type="xs:date" minOccurs="0"/>
-					<xs:element name="AverageMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
-					<xs:element name="MinimumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
-					<xs:element name="MaximumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0"/>
-					<xs:element name="WaterInjection_bbl" type="xs:double" minOccurs="0"/>
-					<xs:element name="WaterSaturation_pct" type="xs:double" minOccurs="0"/>
-					<xs:element name="WaterTDS_mgl" type="xs:double" minOccurs="0"/>
-					<xs:element name="AverageFieldWidePressure_psi" type="xs:double" minOccurs="0"/>
-					<xs:element name="AverageFieldWideGradient_degfft" type="xs:double" minOccurs="0"/>
-					<xs:element name="PorosityMax_pct" type="xs:double" minOccurs="0"/>
-					<xs:element name="PorosityMin_pct" type="xs:double" minOccurs="0"/>
-					<xs:element name="PermeabilityMax_mD" type="xs:double" minOccurs="0"/>
-					<xs:element name="PermeabilityMin_mD" type="xs:double" minOccurs="0"/>
-					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0"/>
-					<xs:element name="Trap" type="xs:string" minOccurs="0"/>
-					<xs:element name="Drive" type="xs:string" minOccurs="0"/>
-					<xs:element name="WaterDensity" type="xs:double" minOccurs="0"/>
-					<xs:element name="CommodityOfInterest" type="xs:string" minOccurs="0"/>
-					<xs:element name="Stimulation" type="xs:string" minOccurs="0"/>
-					<xs:element name="AveragePerforatedThickness_ft" type="xs:double" minOccurs="0"/>
-					<xs:element name="RelatedResource" type="xs:string" minOccurs="0"/>
-					<xs:element name="Source" type="xs:string"/>
+					<xs:element name="ReservoirName" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Common or human-readable name by which the feature (Reservoir) is known. Recommend using only web-safe characters (a-z A-Z 0-9 _-.) in the name. Be consistent in the naming convention used within any given dataset.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Label" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Short text string for labeling the feature on maps. Can be the same as feature name. A label may be an OtherLocationName, OtherID or the Name or some combination.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OtherID" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Alternative identifier(s) for site information. Indicate the authority from which the OtherID is derived with a short (lower case) prefix delimited by a colon ':' If identifiers from multiple different authorities are available, delimit these identifiers with the pipe '|' character. For example, if a well were known to the Arizona Geological Survey (AZGS) by the id number 1337, the identifier string would be azgs:1337. Any such prefixes used to scope identifiers should be explained in the dataset metadata.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OtherName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Other human-intelligible labels for feature such as secondary name or common name, other spellings. Indicate the authority from which the OtherName is derived with a short (lower case) prefix delimited by a colon ':' If identifiers from multiple different authorities are available, delimit these identifiers with the pipe character '|'. For example, if a well were known to the Arizona Geological Survey (AZGS) by the id number 1337, the identifier string would be azgs:1337. Any such prefixes used to scope identifiers should be explained in the dataset metadata.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Description" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Free text field for any additional observations or other information regarding the feature (size, weight, quality, lithology, locality, etc).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="County" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Required. County name. If unknown or not applicable use 'missing'. If offshore, specify 'offshore' in this field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="State" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Required. State name without abbreviations. If unknown or not applicable use 'missing'. For offshore locations, specify the governing or nearest state and list the county as 'offshore'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LocationName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Names of geographic features associated with the site that will be useful as search criteria to locate the information for this site. If identifiers from multiple different authorities are available, delimit these identifiers with the pipe character '|'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LatDegree" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Latitude coordinate for the surface location of the feature; values should be provided with at least 4 significant digits for sufficient precision (7 decimal places is recommended by the USGS (OFR 02-463, p. 6). Use decimal degrees.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LongDegree" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Longitude coordinate for the surface location of the feature; values should be provided with at least 4 significant digits for sufficient precision (7 decimal places is recommended by the USGS (OFR 02-463, p. 6). Use decimal degrees.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SRS" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The spatial reference system. It is recommended that an EPSG code be used to identify the SRS used to specify the location.  If an EPSG code is used, identify it as such with the prefix 'EPSG:' EPSG:4326 is the identifier for WGS84, and should be the text in this field. EPSG stands for European Petroleum Survey Group. EPSSG codes can be dereferenced by putting the code in this URL (replace 4326) http://spatialreference.org/ref/epsg/4326/.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LocationUncertaintyStatement" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Information on how the original location was determined, e.g.: 1:250,000 map, gps unit, Google Earth, PLSS Conversion, Spatial Datum Conversion, e.g., NAD27 to WGS84.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TemperatureMax_F" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Upper boundary of measured temperature range in reservoir, in decimal format.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TemperatureMin_F" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Lower boundary of measured temperature range in reservoir, in decimal format.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DepthToTop_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Depth to top of reservoir.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DepthToBottom_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Depth to bottom of reservoir.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DominantFormationName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Name of geologic formation with the largest thickness in area of interest.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OtherFormationName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Other named geologic units that are of interest to the study; separate names with pipe ('|') character.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DominantLithologyName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Dominant rock type in reservoir. Use CGI lithology terms (see SimpleLithology2012 tab).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OtherLithologyName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Other rock types that are constituents of the reservoir; separate names with pipe ('|') character.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Area_acres" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Area of reservoir extent. Description text for record should provide some indication of how this was estimated.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Width_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Maximum dimension of reservoir perpendicular to the length.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Length_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Maximum horizontal dimension of the reservoir.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SandVolume_cft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Volume of sand between specified isolines within data area.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="BlockVolume_cft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Volume of sediment contained between specified isolines within data area.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PercentSand" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Sand volume divided by block volume.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageNetSandThickness_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Average net sand thickness across data area as calculated from well log interpretation.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WellCount" type="xs:integer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Number of wells contained by reservoir in question.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FaultCount" type="xs:integer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Number of faults contained by field in question.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Faulted" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicate if the reservoir was bounded, or limited in size, by vertical faults. 'Yes' or 'No' may be appropriate indications.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FaultType" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicate general type of fault: Growth, Normal, Thrust.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FaultHydraulicCharacter" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Provide insight into whether there is fluid flow from greater depths along faults or if they are creating a trap/seal.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FirstProductionDate" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Date for the record (of first production). Day, month and year must be specified; Excel will display using ISO 8601 date and time (yyyy-mm-ddT:hh:mm) format. If only the year is known, enter month and day as 'Jan. 1', (or '1/1/', or '1-1-', or 'January 1,'). All dates will be converted to yyyy-mm-ddThh:mm.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="LastProductionDate" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Date for the record (of last production). Day, month and year must be specified; Excel will display using ISO 8601 date and time (yyyy-mm-ddT:hh:mm) format. If only the year is known, enter month and day as 'Jan. 1', (or '1/1/', or '1-1-', or 'January 1,'). All dates will be converted to yyyy-mm-ddThh:mm.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="YearsInProduction" type="xs:integer" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Number of years of active production.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MonthlyProduction_bbl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Used to estimate current pressure and most recent production history across the field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ProductionReportDate" type="xs:date" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Date for monthly production value. Day, month and year must be specified; Excel will display using ISO 8601 date and time (yyyy-mm-ddT:hh:mm) format. If only the year is known, enter month and day as 'Jan. 1', (or '1/1/', or '1-1-', or 'January 1,'). All dates will be converted to yyyy-mm-ddThh:mm.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Average monthly water production for every well in the field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MinimumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Minimum monthly water production from a well in the field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="MaximumMonthlyWaterProduction_bbl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Maximum monthly water production from a well in the field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WaterInjection_bbl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Amount of water injected into a formation for disposal purposes or enhanced recovery.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WaterSaturation_pct" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Water Saturation(%).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WaterTDS_mgl" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Total Dissolved Solids. Milligrams per liter.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageFieldWidePressure_psi" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Corrected pressure, use standardized drawdown curve to approximate contemporary reservoir pressure values.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageFieldWideGradient_degfft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Using corrected BHTs from wells in within the field. Degrees Fahrenheit per foot.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PorosityMax_pct" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Maximum porosity values obtained from public data sources.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PorosityMin_pct" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Minimum porosity values obtained from public data sources.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PermeabilityMax_mD" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Maximum permeability based on Literature values for the field or calculated permeability using production tests. Units of millidarcies (mD).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PermeabilityMin_mD" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Minimum permeability based on Literature values for the field or calculated permeability using production tests.Units of millidarcies (mD).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Calcite, Quartz, Iron Oxides, Clay Minerals, etc.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Trap" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Sealing formation or structural orientation to trap hydrocarbons.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Drive" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Geopressure, dissolved gas drive, thermal expansion, etc.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WaterDensity" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicate the water (or brine, likely) TDS (total dissolved solids). Unit of measure is mg/L.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="CommodityOfInterest" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The commodity of interest associated with the borehole.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Stimulation" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A treatment performed to restore or enhance the productivity of a well.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AveragePerforatedThickness_ft" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Average perforated thickness per well across field.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RelatedResource" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>This may be one to many http links to resources (logs, pictures or other documents if available online. Should be an http:// address (URL)) related to the observation described in each record. Separate multiple values with the pipe character '|'.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Source" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Mandatory. Short text explanation of source of information defining this feature or record; may be author-date type citation, well log, report, data files etc., but should include some indication of how digital data originated. If unpublished data, provide researcher name, date and research institution for proper citation. Separate multiple citations with pipe '|' character.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="MetadataURI" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>URI identifying (and ideally dereferencing to get) a full formal metadata record for the observation report. A time series of observations may all reference the same metadata record that provides contact information and details on procedure, etc.</xs:documentation>
+						</xs:annotation>
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
 								<xs:maxLength value="255"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="Shape" type="gml:PointPropertyType"/>
+					<xs:element name="Shape" type="gml:PointPropertyType">
+						<xs:annotation>
+							<xs:documentation>Added by GIS for WFS service; this element appears in the xml output, but is generated during service deployment from the latitude and longitude, therefore it doesn't appear in the template.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 				</xs:sequence>
 			</xs:extension>
