@@ -330,7 +330,7 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:element>
-					<xs:element name="Shape" type="gml:PointPropertyType">
+					<xs:element name="Shape" type="gml:GeometryPropertyType">
 						<xs:annotation>
 							<xs:documentation>Added by GIS for WFS service; this element appears in the xml output, but is generated during service deployment from the latitude and longitude, therefore it doesn't appear in the template.</xs:documentation>
 						</xs:annotation>
