@@ -2,4 +2,4 @@ This repository contains document artifacts for an inforamtion exchange for Geol
 
 The Excel workbook documents a content model for information useful to characterize a subsurface reservoir for geothermal potential. The content model was created to provide a template for reservoir data gathered by the Texas BEG to be hosted by the NGDS. Provide a format that is clear and comprehesive so that it may be understood by fellow researchers in future studies. Also provide a standardized data template to allow for easy updating by multiple stakeholders and participants.
 
-No services are yet deployed; approval of content model is awaited at the project working group share point site gdsdpwg.org.
+Version 0.2 has been approved and is posted on schemas.usgin.org.
