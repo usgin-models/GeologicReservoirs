@@ -110,9 +110,19 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>Depth to bottom of reservoir.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="AverageWellDepth_m" type="xs:string" minOccurs="0">
+					<xs:element name="AverageReservoirDepth_m" type="xs:double" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Computed as a mean average of all total vertical depths (TVD) within the reservoir.</xs:documentation>
+							<xs:documentation>An average depth for the 'producing zone' of the reservoir.  For hydrocarbon reservoirs, this might be computed as a mean average of all total vertical depths (TVD) within the reservoir.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageReservoirDepthUncertainty" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An expression of the confidence in the  AverageReservoirDepth_m value.  Best practice to include units and assumptions for calculating uncertainty within AverageReservoirDepthMethodology.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageReservoirDepthMethodology" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The method for calculating AverageReservoirDepth_m is stated here.  Required if AverageReservoirDepth_m is provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="DominantFormationName" type="xs:string" minOccurs="0">
@@ -165,7 +175,7 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>Volume of sediment contained between specified isolines within data area.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="IsolineTypeAndUnits" type="xs:double" minOccurs="0">
+					<xs:element name="IsolineTypeAndUnits" type="xs:string" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Describes the properties of the Isoline including units  (e.g. Isotherm in degrees C, isopachs in meters, etc.).  Required if TargetRockVolume_m3 and BlockVolume_m3 are provided.</xs:documentation>
 						</xs:annotation>
@@ -185,9 +195,19 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>Target Rock (Sand, shale, etc.) volume divided by block volume. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="AverageNetSandThickness_m" type="xs:double" minOccurs="0">
+					<xs:element name="AverageNetTargetRockThickness_m" type="xs:double" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Average net sand thickness across data area as calculated from well log interpretation.</xs:documentation>
+							<xs:documentation>Average net target rock thickness within the reservoir/fairway boundaries identified as calculated from well log interpretation.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageNetTargetRockThicknessUncertainty" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An expression of the confidence in the  AverageNetTargetRockThickness value.  Best practice to include units and assumptions for calculating uncertainty within AverageReservoirDepthMethodology.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageNetTargetRockThicknessMethodology" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The method for well log interpretation in calculating AverageNetTargetRockThickness_m is stated here.  Required if AverageNetTargetRockThickness_m is provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="WellCount" type="xs:integer" minOccurs="0">
@@ -280,6 +300,16 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>Using corrected BHTs from wells in within the field. Degrees Fahrenheit per meter.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="AverageSurfaceTemperature_degC" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>If gradient is provided, specify the average surface temperature.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AverageSurfaceTemperatureSource" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Source of the average surface temperature.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="PorosityMax_pct" type="xs:double" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Maximum porosity values obtained from public data sources.</xs:documentation>
@@ -295,7 +325,12 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>The Average Porosity available from public data sources.  The method for calculating an average should be stated in PorosityAverageMethod.   Where only one porosity value is obtained from public data sources, the minimum, maximum, and average will be identical.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="PorosityAverageMethod" type="xs:double" minOccurs="0">
+					<xs:element name="PorosityAverageUncertainty" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An expression of the confidence in the  PorosityAverage_pct value.  Best practice to include units and assumptions for calculating uncertainty within PorosityAverageMethod.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PorosityAverageMethod" type="xs:string" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The method for calculating PorosityAverage_pct is stated here.  Required if PorosityAverage_pct is provided.</xs:documentation>
 						</xs:annotation>
@@ -315,9 +350,29 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>The Average Permeability available from public data sources.  The method for calculating an average should be stated in PermeabilityAverageMethod.   Where only one permeability value is obtained from public data sources, the minimum, maximum, and average will be identical.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="PermeabilityAverageMethod" type="xs:double" minOccurs="0">
+					<xs:element name="PermeabilityAverageUncertainty" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An expression of the confidence in the  PermeabiltyAverage_m2 value.  Best practice to include units and assumptions for calculating uncertainty within PermeabilityAverageMethod.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="PermeabilityAverageMethod" type="xs:string" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>The method for calculating PermeabilityAverage_m2 is stated here.  Required if PermeabilityAverage_m2 is provided.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ReservoirProductivity_LPerMPa-s" type="xs:double" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Calculated expression of the reservoir's ideality for geothermal applications. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ReservoirProductivityUncertainty" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>An expression of the confidence in the ReservoirProductivity_LperMPas value.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ReservoirProductivityMethodology" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The method for calculating ReservoirProductivity_LperMPas is stated here.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0">
