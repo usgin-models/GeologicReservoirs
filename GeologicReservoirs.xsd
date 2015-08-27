@@ -2,7 +2,7 @@
 	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
 	<xs:import namespace="http://www.opengis.net/gmlsf" schemaLocation="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd"/>
 	<xs:annotation>
-		<!-- This XSD document, including XML schema, indicates the content useful to characterize a subsurface reservoir for geothermal potential. The content model was created to provide a template for reservoir data gathered by the Texas BEG to be hosted by the NGDS. Provide a format that is clear and comprehesive so that it may be understood by fellow researchers in future studies. Also provide a standardized data template to allow for easy updating by multiple stakeholders and participants.-->
+		<!-- This XSD document, including XML schema, indicates the content useful to characterize a subsurface reservoir for geothermal potential. The content model was created to provide a template for reservoir data gathered by the Texas BEG to be hosted by the NGDS. Provide a format that is clear and comprehensive so that it may be understood by fellow researchers in future studies. Also provide a standardized data template to allow for easy updating by multiple stakeholders and participants.-->
 		<!--Updated to version 1.0 from input from Play Fairway Analysis projects. Version 0.2.2 changed 'date' data types to 'dateTime'. Annotated version 0.2.1. This XSD document was created on 2013-06-03 by Christy Caudill, AZGS. Field Description annotations standardized 2013-08-22 by Esty Pape, AZGS.-->
 		<xs:appinfo source="http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsfLevels.xsd">
 			<gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
@@ -360,19 +360,19 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>The method for calculating PermeabilityAverage_m2 is stated here.  Required if PermeabilityAverage_m2 is provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirProductivity_LPerMPa-s" type="xs:double" minOccurs="0">
+					<xs:element name="ReservoirFavorabilty" type="xs:double" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Calculated expression of the reservoir's ideality for geothermal applications. </xs:documentation>
+							<xs:documentation>Calculated expression of the reservoir's favorablity for geothermal applications.  Examples of suitable parameters include flow rate, productivity, etc. Chosen parameter description and units need to be provided in methodology field.  Uncertainty and methodology are required if ReservoirFavorability is provided. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirProductivityUncertainty" type="xs:string" minOccurs="0">
+					<xs:element name="ReservoirFavorabiltyUncertainty" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An expression of the confidence in the ReservoirProductivity_LperMPas value.</xs:documentation>
+							<xs:documentation>An expression of the confidence in the ReservoirFavorabilty value.  Best practice to include units and assumptions for calculating uncertainty within ReservoirFavorabiltyMethodology. .</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirProductivityMethodology" type="xs:string" minOccurs="0">
+					<xs:element name="ReservoirFavorabiltyMethodology" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The method for calculating ReservoirProductivity_LperMPas is stated here.</xs:documentation>
+							<xs:documentation>The method for calculating ReservoirFavorabilty is stated here.  Required if ReservoirFavorabilty is provided, to explain units and calculation of ReservoirFavorability.  Also provide units and method for calculating ReservoirFavorabiltyUncertainty. .</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0">
