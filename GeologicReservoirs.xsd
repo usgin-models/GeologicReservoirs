@@ -352,7 +352,7 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 					</xs:element>
 					<xs:element name="PermeabilityAverageUncertainty" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An expression of the confidence in the  PermeabiltyAverage_m2 value.  Best practice to include units and assumptions for calculating uncertainty within PermeabilityAverageMethod.</xs:documentation>
+							<xs:documentation>An expression of the confidence in the  PermeabilityAverage_m2 value.  Best practice to include units and assumptions for calculating uncertainty within PermeabilityAverageMethod.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="PermeabilityAverageMethod" type="xs:string" minOccurs="0">
@@ -360,19 +360,19 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>The method for calculating PermeabilityAverage_m2 is stated here.  Required if PermeabilityAverage_m2 is provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirFavorabilty" type="xs:double" minOccurs="0">
+					<xs:element name="ReservoirFavorability" type="xs:double" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Calculated expression of the reservoir's favorablity for geothermal applications.  Examples of suitable parameters include flow rate, productivity, etc. Chosen parameter description and units need to be provided in methodology field.  Uncertainty and methodology are required if ReservoirFavorability is provided. </xs:documentation>
+							<xs:documentation>Calculated expression of the reservoir's favorability for geothermal applications.  Examples of suitable parameters include flow rate, productivity, etc. Chosen parameter description and units need to be provided in methodology field.  Uncertainty and methodology are required if ReservoirFavorability is provided. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirFavorabiltyUncertainty" type="xs:string" minOccurs="0">
+					<xs:element name="ReservoirFavorabilityUncertainty" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>An expression of the confidence in the ReservoirFavorabilty value.  Best practice to include units and assumptions for calculating uncertainty within ReservoirFavorabiltyMethodology. .</xs:documentation>
+							<xs:documentation>An expression of the confidence in the ReservoirFavorability value.  Best practice to include units and assumptions for calculating uncertainty within ReservoirFavorabilityMethodology. .</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ReservoirFavorabiltyMethodology" type="xs:string" minOccurs="0">
+					<xs:element name="ReservoirFavorabilityMethodology" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>The method for calculating ReservoirFavorabilty is stated here.  Required if ReservoirFavorabilty is provided, to explain units and calculation of ReservoirFavorability.  Also provide units and method for calculating ReservoirFavorabiltyUncertainty. .</xs:documentation>
+							<xs:documentation>The method for calculating ReservoirFavorability is stated here.  Required if ReservoirFavorability is provided, to explain units and calculation of ReservoirFavorability.  Also provide units and method for calculating ReservoirFavorabilityUncertainty. .</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="CementationMineralogy" type="xs:string" minOccurs="0">
