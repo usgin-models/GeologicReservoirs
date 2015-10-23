@@ -210,12 +210,12 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>The method for well log interpretation in calculating AverageNetTargetRockThickness_m is stated here.  Required if AverageNetTargetRockThickness_m is provided.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="WellCount" type="xs:integer" minOccurs="0">
+					<xs:element name="WellCount" type="xs:double" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Number of wells contained by reservoir in question.  Required if AverageWellDepth_m was provided. </xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="FaultCount" type="xs:integer" minOccurs="0">
+					<xs:element name="FaultCount" type="xs:double" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Number of faults contained by field in question.</xs:documentation>
 						</xs:annotation>
@@ -245,7 +245,7 @@ http://schemas.opengis.net/gml/3.1.1/profiles/gmlsfProfile/1.0.0/gmlsf.xsd </gml
 							<xs:documentation>Date for the record (of last production). Day, month and year must be specified; Excel will display using ISO 8601 date and time (yyyy-mm-ddT:hh:mm) format. If only the year is known, enter month and day as 'Jan. 1', (or '1/1/', or '1-1-', or 'January 1,'). All dates will be converted to yyyy-mm-ddThh:mm.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="YearsInProduction" type="xs:integer" minOccurs="0">
+					<xs:element name="YearsInProduction" type="xs:double" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Number of years of active production.</xs:documentation>
 						</xs:annotation>
